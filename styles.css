@@ -1,0 +1,236 @@
+:root {
+  color-scheme: dark;
+  --bg: #121620;
+  --surface: #1d2431;
+  --surface-strong: #272f3d;
+  --text: #eef2f7;
+  --muted: #a5b1c8;
+  --accent: #6dd0ff;
+  --accent-strong: #42b1ff;
+  --success: #4ade80;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #16202f 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.hero {
+  padding: 3rem 1.5rem 1.25rem;
+  text-align: center;
+}
+
+.hero__content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 3.5vw, 3.75rem);
+  line-height: 1.02;
+}
+
+p {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.controls {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+legend,
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+select:focus {
+  border-color: var(--accent);
+  outline: 3px solid rgba(109, 208, 255, 0.18);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 14px;
+  color: #0f172a;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 18px 30px rgba(66, 177, 255, 0.18);
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  outline: none;
+}
+
+.hint {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.status {
+  margin-top: 1rem;
+  min-height: 1.5rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.palette {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.color-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 180px;
+  display: grid;
+  align-items: flex-end;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.color-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+}
+
+.color-card__info {
+  display: grid;
+  gap: 0.35rem;
+  text-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.color-card__hex {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.color-card__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.lock-button {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.lock-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.35);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%) translateY(120%);
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: var(--text);
+  padding: 0.95rem 1.2rem;
+  min-width: 220px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.toast--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+@media (min-width: 720px) {
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  button {
+    width: auto;
+  }
+
+  .palette {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .palette {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
