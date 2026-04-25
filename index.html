@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Paletas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head><body>
+  <header class="hero">
+    <div class="hero__content">
+      <h1>Generador de paletas</h1>
+      <p>Elige el tamaño y crea una paleta de colores aleatoria con un solo clic.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Panel de generación de paletas">
+      <form id="paletteForm">
+        <fieldset>
+          <legend>Tamaño de la paleta</legend>
+          <label for="paletteSize">Seleccionar colores</label>
+          <select id="paletteSize" name="paletteSize" aria-describedby="sizeHint">
+            <option value="6">6 colores</option>
+            <option value="8">8 colores</option>
+            <option value="9">9 colores</option>
+          </select>
+          <p class="hint" id="sizeHint">Elige cuántos colores quieres generar.</p>
+        </fieldset>
+        <button id="generateButton" type="submit">Generar paleta</button>
+      </form>
+      <div class="status" id="statusMessage" aria-live="polite"></div>
+    </section>
+
+    <section class="palette" id="paletteSection" aria-label="Paleta de colores generada"></section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  
+</html>
