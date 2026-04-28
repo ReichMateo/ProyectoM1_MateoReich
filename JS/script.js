@@ -10,7 +10,7 @@ const STORAGE_KEY = 'randomPaletteAppState';
 function randomHue() {
   return Math.floor(Math.random() * 360);
 }
-
+//Reset
 function randomSaturation() {
   return 60 + Math.floor(Math.random() * 30);
 }
