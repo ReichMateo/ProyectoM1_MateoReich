@@ -29,7 +29,17 @@ body {
 }
 
 button,
-select {
+select select {
+  color: #000000; 
+}
+
+option {
+  color: #000000;       
+  background: #fafafa57;  
+}
+
+button {
+  cursor: pointer;
   font: inherit;
 }
 
